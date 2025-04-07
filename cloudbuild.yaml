@@ -1,0 +1,15 @@
+steps:
+  # Terraform init
+  - name: 'hashicorp/terraform:latest'
+    entrypoint: 'terraform'
+    args: ['init']
+
+  # Terraform plan
+  - name: 'hashicorp/terraform:latest'
+    entrypoint: 'terraform'
+    args: ['plan', '-out=tfplan']
+
+  # Terraform apply
+  - name: 'hashicorp/terraform:latest'
+    entrypoint: 'terraform'
+    args: ['apply', 'tfplan']
